@@ -12,17 +12,27 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const config_1 = require("@nestjs/config");
 const jwt_1 = require("@nestjs/jwt");
-const auth_service_1 = require("./auth/auth.service");
 const prisma_service_1 = require("./services/prisma.service");
-const auth_controller_1 = require("./auth/auth.controller");
+const auth_controller_1 = require("./routes/auth/auth.controller");
+const auth_service_1 = require("./routes/auth/auth.service");
+const produto_service_1 = require("./routes/produtos/produto.service");
+const categoria_service_1 = require("./routes/produtos/categoria.service");
+const produto_controller_1 = require("./routes/produtos/produto.controller");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [config_1.ConfigModule.forRoot()],
-        controllers: [app_controller_1.AppController, auth_controller_1.AuthController],
-        providers: [app_service_1.AppService, prisma_service_1.PrismaService, jwt_1.JwtService, auth_service_1.AuthService],
+        controllers: [app_controller_1.AppController, auth_controller_1.AuthController, produto_controller_1.ProdutosController],
+        providers: [
+            app_service_1.AppService,
+            prisma_service_1.PrismaService,
+            jwt_1.JwtService,
+            auth_service_1.AuthService,
+            produto_service_1.ProdutoService,
+            categoria_service_1.CategoriaService,
+        ],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

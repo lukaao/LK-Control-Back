@@ -1,0 +1,80 @@
+import { CategoriaService } from './categoria.service';
+import { Request } from 'express';
+import { CadastrarCategoriaDto } from './dto/categoria/cadastrar-categoria.dto';
+import { AtualizarCategoriaDto } from './dto/categoria/atualiza-categoria.dto';
+import { BuscarCategoriaDto } from './dto/categoria/buscar-categoria.dto';
+import { ListarStatusDto } from './dto/listar-status.dto';
+import { ProdutoService } from './produto.service';
+import { CadastrarProdutodto } from './dto/produto/cadastrar-produto.dto';
+import { AtualizarProdutodto } from './dto/produto/atualizar-produto.dto';
+import { BuscarProdutoDto } from './dto/produto/buscar-produto.dto';
+import { ListarProdutoDto } from './dto/produto/listar-produto.dto';
+export declare class ProdutosController {
+    private readonly categoriaService;
+    private readonly produtoService;
+    constructor(categoriaService: CategoriaService, produtoService: ProdutoService);
+    cadastrar(request: Request, body: CadastrarProdutodto): Promise<{
+        CODPROD: number;
+        CODIGO: string;
+        DESCRICAO: string;
+        STATUS: boolean;
+        CODCAT: number;
+        DATAINC: Date;
+        DATAALT: Date;
+    }>;
+    atualizar(request: Request, body: AtualizarProdutodto): Promise<{
+        CODPROD: number;
+        CODIGO: string;
+        DESCRICAO: string;
+        STATUS: boolean;
+        CODCAT: number;
+        DATAINC: Date;
+        DATAALT: Date;
+    }>;
+    buscar(request: Request, body: BuscarProdutoDto): Promise<{
+        CODPROD: number;
+        CODIGO: string;
+        DESCRICAO: string;
+        STATUS: boolean;
+        CODCAT: number;
+        DATAINC: Date;
+        DATAALT: Date;
+    }>;
+    listar(request: Request, body: ListarProdutoDto): Promise<{
+        CODPROD: number;
+        CODIGO: string;
+        DESCRICAO: string;
+        STATUS: boolean;
+        CODCAT: number;
+        DATAINC: Date;
+        DATAALT: Date;
+    }[]>;
+    cadastrarCategoria(request: Request, body: CadastrarCategoriaDto): Promise<{
+        CODCAT: number;
+        DESCRICAO: string;
+        STATUS: boolean;
+        DATAINC: Date;
+        DATAALT: Date;
+    }>;
+    atualizarCategoria(request: Request, body: AtualizarCategoriaDto): Promise<{
+        CODCAT: number;
+        DESCRICAO: string;
+        STATUS: boolean;
+        DATAINC: Date;
+        DATAALT: Date;
+    }>;
+    buscarCategoria(request: Request, body: BuscarCategoriaDto): Promise<{
+        CODCAT: number;
+        DESCRICAO: string;
+        STATUS: boolean;
+        DATAINC: Date;
+        DATAALT: Date;
+    }>;
+    listarCategoria(request: Request, body: ListarStatusDto): Promise<{
+        CODCAT: number;
+        DESCRICAO: string;
+        STATUS: boolean;
+        DATAINC: Date;
+        DATAALT: Date;
+    }[]>;
+}

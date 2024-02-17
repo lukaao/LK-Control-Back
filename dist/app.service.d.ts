@@ -1,3 +1,6 @@
+import { PrismaService } from './services/prisma.service';
 export declare class AppService {
-    getHello(): string;
+    private readonly prisma;
+    constructor(prisma: PrismaService);
+    setupInicial(): Promise<void>;
 }

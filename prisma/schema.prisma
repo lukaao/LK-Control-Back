@@ -13,18 +13,42 @@ model Login {
   USUARIO String
   SENHA   String
 
+  DATAINC DateTime  @default(now())
+  DATAALT DateTime? @updatedAt
+
   @@map("LOGIN")
 }
 
 model Produto {
   CODPROD Int @id @default(autoincrement())
 
-  DESCRICAO String
-  STATUS    Boolean @default(true)
+  CODIGO String? @unique
 
-  ALUGUEIS Aluguel[]
+  DESCRICAO String?
+  STATUS    Boolean? @default(true)
+
+  ALUGUEIS  Aluguel[]
+  CATEGORIA Categoria? @relation(fields: [CODCAT], references: [CODCAT])
+  CODCAT    Int?
+
+  DATAINC DateTime  @default(now())
+  DATAALT DateTime? @updatedAt
 
   @@map("PRODUTO")
+}
+
+model Categoria {
+  CODCAT Int @id @default(autoincrement())
+
+  DESCRICAO String
+  STATUS    Boolean? @default(true)
+
+  PRODUTOS Produto[]
+
+  DATAINC DateTime  @default(now())
+  DATAALT DateTime? @updatedAt
+
+  @@map("CATEGORIA")
 }
 
 model Cliente {
@@ -35,13 +59,16 @@ model Cliente {
 
   ALUGUEIS Aluguel[]
 
+  DATAINC DateTime  @default(now())
+  DATAALT DateTime? @updatedAt
+
   @@map("CLIENTE")
 }
 
 model Aluguel {
   CODALU Int @id @default(autoincrement())
 
-  STATUS       Boolean
+  STATUS       Boolean? @default(true)
   DATAINICIO   DateTime
   DATAFINAL    DateTime
   ENDERECO     String
@@ -54,6 +81,9 @@ model Aluguel {
 
   FATURADO Faturado?
 
+  DATAINC DateTime  @default(now())
+  DATAALT DateTime? @updatedAt
+
   @@map("ALUGUEL")
 }
 
@@ -65,6 +95,9 @@ model Faturado {
 
   ALUGUEL Aluguel? @relation(fields: [CODALU], references: [CODALU])
   CODALU  Int?     @unique
+
+  DATAINC DateTime  @default(now())
+  DATAALT DateTime? @updatedAt
 
   @@map("FATURADO")
 }
