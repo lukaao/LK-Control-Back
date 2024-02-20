@@ -66,6 +66,7 @@ export class CategoriaService {
     try {
       const busca = await this.prisma.categoria.findFirst({
         where: { CODCAT: body.CODCAT },
+        include: { PRODUTOS: true },
       });
       if (!busca) {
         throw new HttpException(
@@ -85,15 +86,19 @@ export class CategoriaService {
       if (body.STATUS == 'true') {
         const lista = await this.prisma.categoria.findMany({
           where: { STATUS: true },
+          include: { PRODUTOS: true },
         });
         return lista;
       } else if (body.STATUS == 'false') {
         const lista = await this.prisma.categoria.findMany({
           where: { STATUS: false },
+          include: { PRODUTOS: true },
         });
         return lista;
       } else {
-        const lista = await this.prisma.categoria.findMany({});
+        const lista = await this.prisma.categoria.findMany({
+          include: { PRODUTOS: true },
+        });
         return lista;
       }
     } catch (error) {

@@ -99,6 +99,7 @@ export class ProdutoService {
     try {
       const busca = await this.prisma.produto.findFirst({
         where: { CODPROD: body.CODPROD },
+        include: { CATEGORIA: true },
       });
       if (!busca) {
         throw new HttpException(
@@ -127,11 +128,13 @@ export class ProdutoService {
         }
         const lista = await this.prisma.produto.findMany({
           where: { STATUS: true, CODCAT: cat.CODCAT },
+          include: { CATEGORIA: true },
         });
         return lista;
       }
       const lista = await this.prisma.produto.findMany({
         where: { STATUS: true },
+        include: { CATEGORIA: true },
       });
       return lista;
     } catch (error) {
