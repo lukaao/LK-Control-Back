@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate {
         );
       }
 
-      const tokenDados: TokenDados = decode(token);
+      const tokenDados: any = decode(token);
 
       const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
       if (currentTimestampInSeconds >= tokenDados.exp) {

@@ -63,6 +63,7 @@ let CategoriaService = class CategoriaService {
         try {
             const busca = await this.prisma.categoria.findFirst({
                 where: { CODCAT: body.CODCAT },
+                include: { PRODUTOS: true },
             });
             if (!busca) {
                 throw new common_1.HttpException('Categoria não encontrada', common_1.HttpStatus.NOT_FOUND);
@@ -78,17 +79,21 @@ let CategoriaService = class CategoriaService {
             if (body.STATUS == 'true') {
                 const lista = await this.prisma.categoria.findMany({
                     where: { STATUS: true },
+                    include: { PRODUTOS: true },
                 });
                 return lista;
             }
             else if (body.STATUS == 'false') {
                 const lista = await this.prisma.categoria.findMany({
                     where: { STATUS: false },
+                    include: { PRODUTOS: true },
                 });
                 return lista;
             }
             else {
-                const lista = await this.prisma.categoria.findMany({});
+                const lista = await this.prisma.categoria.findMany({
+                    include: { PRODUTOS: true },
+                });
                 return lista;
             }
         }

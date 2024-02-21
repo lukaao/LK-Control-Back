@@ -64,7 +64,7 @@ export class AuthService {
 
   async trocarSenha(body: TrocarSenhaDto, jwt: string) {
     try {
-      const token: TokenDados = decode(jwt);
+      const token: any = decode(jwt);
       const busca = await this.prisma.login.findFirst({
         where: { USUARIO: token.USUARIO },
       });

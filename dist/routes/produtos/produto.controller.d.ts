@@ -32,6 +32,14 @@ export declare class ProdutosController {
         DATAALT: Date;
     }>;
     buscar(request: Request, body: BuscarProdutoDto): Promise<{
+        CATEGORIA: {
+            CODCAT: number;
+            DESCRICAO: string;
+            STATUS: boolean;
+            DATAINC: Date;
+            DATAALT: Date;
+        };
+    } & {
         CODPROD: number;
         CODIGO: string;
         DESCRICAO: string;
@@ -40,7 +48,15 @@ export declare class ProdutosController {
         DATAINC: Date;
         DATAALT: Date;
     }>;
-    listar(request: Request, body: ListarProdutoDto): Promise<{
+    listar(request: Request, body: ListarProdutoDto): Promise<({
+        CATEGORIA: {
+            CODCAT: number;
+            DESCRICAO: string;
+            STATUS: boolean;
+            DATAINC: Date;
+            DATAALT: Date;
+        };
+    } & {
         CODPROD: number;
         CODIGO: string;
         DESCRICAO: string;
@@ -48,7 +64,7 @@ export declare class ProdutosController {
         CODCAT: number;
         DATAINC: Date;
         DATAALT: Date;
-    }[]>;
+    })[]>;
     cadastrarCategoria(request: Request, body: CadastrarCategoriaDto): Promise<{
         CODCAT: number;
         DESCRICAO: string;
@@ -64,17 +80,37 @@ export declare class ProdutosController {
         DATAALT: Date;
     }>;
     buscarCategoria(request: Request, body: BuscarCategoriaDto): Promise<{
+        PRODUTOS: {
+            CODPROD: number;
+            CODIGO: string;
+            DESCRICAO: string;
+            STATUS: boolean;
+            CODCAT: number;
+            DATAINC: Date;
+            DATAALT: Date;
+        }[];
+    } & {
         CODCAT: number;
         DESCRICAO: string;
         STATUS: boolean;
         DATAINC: Date;
         DATAALT: Date;
     }>;
-    listarCategoria(request: Request, body: ListarStatusDto): Promise<{
+    listarCategoria(request: Request, body: ListarStatusDto): Promise<({
+        PRODUTOS: {
+            CODPROD: number;
+            CODIGO: string;
+            DESCRICAO: string;
+            STATUS: boolean;
+            CODCAT: number;
+            DATAINC: Date;
+            DATAALT: Date;
+        }[];
+    } & {
         CODCAT: number;
         DESCRICAO: string;
         STATUS: boolean;
         DATAINC: Date;
         DATAALT: Date;
-    }[]>;
+    })[]>;
 }

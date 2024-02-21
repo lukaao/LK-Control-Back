@@ -25,6 +25,14 @@ export declare class ProdutoService {
         DATAALT: Date;
     }>;
     buscar(body: BuscarProdutoDto, jwt: string): Promise<{
+        CATEGORIA: {
+            CODCAT: number;
+            DESCRICAO: string;
+            STATUS: boolean;
+            DATAINC: Date;
+            DATAALT: Date;
+        };
+    } & {
         CODPROD: number;
         CODIGO: string;
         DESCRICAO: string;
@@ -33,7 +41,15 @@ export declare class ProdutoService {
         DATAINC: Date;
         DATAALT: Date;
     }>;
-    listar(body: ListarProdutoDto, jwt: string): Promise<{
+    listar(body: ListarProdutoDto, jwt: string): Promise<({
+        CATEGORIA: {
+            CODCAT: number;
+            DESCRICAO: string;
+            STATUS: boolean;
+            DATAINC: Date;
+            DATAALT: Date;
+        };
+    } & {
         CODPROD: number;
         CODIGO: string;
         DESCRICAO: string;
@@ -41,5 +57,5 @@ export declare class ProdutoService {
         CODCAT: number;
         DATAINC: Date;
         DATAALT: Date;
-    }[]>;
+    })[]>;
 }

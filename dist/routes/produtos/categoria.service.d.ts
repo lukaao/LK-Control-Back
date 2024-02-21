@@ -21,17 +21,37 @@ export declare class CategoriaService {
         DATAALT: Date;
     }>;
     buscar(body: BuscarCategoriaDto, jwt: string): Promise<{
+        PRODUTOS: {
+            CODPROD: number;
+            CODIGO: string;
+            DESCRICAO: string;
+            STATUS: boolean;
+            CODCAT: number;
+            DATAINC: Date;
+            DATAALT: Date;
+        }[];
+    } & {
         CODCAT: number;
         DESCRICAO: string;
         STATUS: boolean;
         DATAINC: Date;
         DATAALT: Date;
     }>;
-    listar(body: ListarStatusDto, jwt: string): Promise<{
+    listar(body: ListarStatusDto, jwt: string): Promise<({
+        PRODUTOS: {
+            CODPROD: number;
+            CODIGO: string;
+            DESCRICAO: string;
+            STATUS: boolean;
+            CODCAT: number;
+            DATAINC: Date;
+            DATAALT: Date;
+        }[];
+    } & {
         CODCAT: number;
         DESCRICAO: string;
         STATUS: boolean;
         DATAINC: Date;
         DATAALT: Date;
-    }[]>;
+    })[]>;
 }
