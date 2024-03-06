@@ -25,7 +25,7 @@ model Produto {
   CODIGO String? @unique
 
   DESCRICAO String?
-  STATUS    Boolean? @default(true)
+  STATUS    Int?    @default(1)
 
   ALUGUEIS  Aluguel[]
   CATEGORIA Categoria? @relation(fields: [CODCAT], references: [CODCAT])
@@ -41,7 +41,7 @@ model Categoria {
   CODCAT Int @id @default(autoincrement())
 
   DESCRICAO String
-  STATUS    Boolean? @default(true)
+  STATUS    Int?   @default(1)
 
   PRODUTOS Produto[]
 
@@ -68,7 +68,7 @@ model Cliente {
 model Aluguel {
   CODALU Int @id @default(autoincrement())
 
-  STATUS       Boolean? @default(true)
+  STATUS       Int?     @default(1)
   DATAINICIO   DateTime
   DATAFINAL    DateTime
   ENDERECO     String
@@ -89,6 +89,8 @@ model Aluguel {
 
 model Faturado {
   CODFAT Int @id @default(autoincrement())
+
+  CUSTO Int?
 
   PRECOFINAL   Float
   DATAFATURADO DateTime

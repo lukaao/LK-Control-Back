@@ -38,6 +38,6 @@ export class AtualizarProdutodto {
     required: false,
   })
   @IsOptional()
-  @IsBoolean()
-  STATUS: boolean;
+  @IsNumber()
+  STATUS: number;
 }

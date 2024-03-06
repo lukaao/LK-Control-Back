@@ -38,7 +38,7 @@ __decorate([
         required: false,
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsBoolean)(),
-    __metadata("design:type", Boolean)
+    (0, class_validator_1.IsNumber)(),
+    __metadata("design:type", Number)
 ], AtualizarCategoriaDto.prototype, "STATUS", void 0);
 //# sourceMappingURL=atualiza-categoria.dto.js.map

@@ -38,6 +38,7 @@ let ProdutoService = class ProdutoService {
                     CODCAT: cat.CODCAT,
                     CODIGO: body.CODIGO,
                 },
+                include: { CATEGORIA: true },
             });
             return cadastra;
         }
@@ -102,22 +103,8 @@ let ProdutoService = class ProdutoService {
     }
     async listar(body, jwt) {
         try {
-            if (body.CATEGORIA) {
-                const cat = await this.prisma.categoria.findFirst({
-                    where: { DESCRICAO: body.CATEGORIA },
-                });
-                if (!cat) {
-                    throw new common_1.HttpException('Categoria não encontrada', common_1.HttpStatus.NOT_FOUND);
-                }
-                const lista = await this.prisma.produto.findMany({
-                    where: { STATUS: true, CODCAT: cat.CODCAT },
-                    include: { CATEGORIA: true },
-                });
-                return lista;
-            }
             const lista = await this.prisma.produto.findMany({
-                where: { STATUS: true },
-                include: { CATEGORIA: true },
+                include: { CATEGORIA: true, ALUGUEIS: { where: { STATUS: 1 } } },
             });
             return lista;
         }

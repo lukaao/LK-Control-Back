@@ -10,7 +10,7 @@ export declare class AluguelController {
     constructor(aluguelService: AluguelService);
     cadastrar(request: Request, body: CadastrarAluguelDto): Promise<{
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -22,7 +22,7 @@ export declare class AluguelController {
     }>;
     atualizar(request: Request, body: AtualizarAluguelDto): Promise<{
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -44,14 +44,14 @@ export declare class AluguelController {
             CODPROD: number;
             CODIGO: string;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             CODCAT: number;
             DATAINC: Date;
             DATAALT: Date;
         };
     } & {
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -63,7 +63,7 @@ export declare class AluguelController {
     }>;
     remover(request: Request, body: BuscarAluguelDto): Promise<{
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -85,14 +85,14 @@ export declare class AluguelController {
             CODPROD: number;
             CODIGO: string;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             CODCAT: number;
             DATAINC: Date;
             DATAALT: Date;
         };
     } & {
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -104,6 +104,7 @@ export declare class AluguelController {
     })[]>;
     cadastrarfat(request: Request, body: FaturarDto): Promise<{
         CODFAT: number;
+        CUSTO: number;
         PRECOFINAL: number;
         DATAFATURADO: Date;
         CODALU: number;
@@ -123,14 +124,14 @@ export declare class AluguelController {
                 CODPROD: number;
                 CODIGO: string;
                 DESCRICAO: string;
-                STATUS: boolean;
+                STATUS: number;
                 CODCAT: number;
                 DATAINC: Date;
                 DATAALT: Date;
             };
         } & {
             CODALU: number;
-            STATUS: boolean;
+            STATUS: number;
             DATAINICIO: Date;
             DATAFINAL: Date;
             ENDERECO: string;
@@ -142,6 +143,7 @@ export declare class AluguelController {
         };
     } & {
         CODFAT: number;
+        CUSTO: number;
         PRECOFINAL: number;
         DATAFATURADO: Date;
         CODALU: number;
@@ -161,14 +163,14 @@ export declare class AluguelController {
                 CODPROD: number;
                 CODIGO: string;
                 DESCRICAO: string;
-                STATUS: boolean;
+                STATUS: number;
                 CODCAT: number;
                 DATAINC: Date;
                 DATAALT: Date;
             };
         } & {
             CODALU: number;
-            STATUS: boolean;
+            STATUS: number;
             DATAINICIO: Date;
             DATAFINAL: Date;
             ENDERECO: string;
@@ -180,6 +182,7 @@ export declare class AluguelController {
         };
     } & {
         CODFAT: number;
+        CUSTO: number;
         PRECOFINAL: number;
         DATAFATURADO: Date;
         CODALU: number;

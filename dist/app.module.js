@@ -18,13 +18,23 @@ const auth_service_1 = require("./routes/auth/auth.service");
 const produto_service_1 = require("./routes/produtos/produto.service");
 const categoria_service_1 = require("./routes/produtos/categoria.service");
 const produto_controller_1 = require("./routes/produtos/produto.controller");
+const aluguel_service_1 = require("./routes/aluguel/aluguel.service");
+const cliente_service_1 = require("./routes/clientes/cliente.service");
+const aluguel_controller_1 = require("./routes/aluguel/aluguel.controller");
+const cliente_controller_1 = require("./routes/clientes/cliente.controller");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [config_1.ConfigModule.forRoot()],
-        controllers: [app_controller_1.AppController, auth_controller_1.AuthController, produto_controller_1.ProdutosController],
+        controllers: [
+            app_controller_1.AppController,
+            auth_controller_1.AuthController,
+            produto_controller_1.ProdutosController,
+            aluguel_controller_1.AluguelController,
+            cliente_controller_1.ClienteController,
+        ],
         providers: [
             app_service_1.AppService,
             prisma_service_1.PrismaService,
@@ -32,6 +42,8 @@ exports.AppModule = AppModule = __decorate([
             auth_service_1.AuthService,
             produto_service_1.ProdutoService,
             categoria_service_1.CategoriaService,
+            aluguel_service_1.AluguelService,
+            cliente_service_1.ClienteService,
         ],
     })
 ], AppModule);

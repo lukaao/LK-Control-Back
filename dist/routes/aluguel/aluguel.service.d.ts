@@ -10,7 +10,7 @@ export declare class AluguelService {
     constructor(prisma: PrismaService);
     cadastra(body: CadastrarAluguelDto, jwt: string): Promise<{
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -22,7 +22,7 @@ export declare class AluguelService {
     }>;
     atualiza(body: AtualizarAluguelDto, jwt: string): Promise<{
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -34,7 +34,7 @@ export declare class AluguelService {
     }>;
     deletar(body: BuscarAluguelDto, jwt: string): Promise<{
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -56,14 +56,14 @@ export declare class AluguelService {
             CODPROD: number;
             CODIGO: string;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             CODCAT: number;
             DATAINC: Date;
             DATAALT: Date;
         };
     } & {
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -85,14 +85,14 @@ export declare class AluguelService {
             CODPROD: number;
             CODIGO: string;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             CODCAT: number;
             DATAINC: Date;
             DATAALT: Date;
         };
     } & {
         CODALU: number;
-        STATUS: boolean;
+        STATUS: number;
         DATAINICIO: Date;
         DATAFINAL: Date;
         ENDERECO: string;
@@ -104,6 +104,7 @@ export declare class AluguelService {
     })[]>;
     faturar(body: FaturarDto, jwt: string): Promise<{
         CODFAT: number;
+        CUSTO: number;
         PRECOFINAL: number;
         DATAFATURADO: Date;
         CODALU: number;
@@ -123,14 +124,14 @@ export declare class AluguelService {
                 CODPROD: number;
                 CODIGO: string;
                 DESCRICAO: string;
-                STATUS: boolean;
+                STATUS: number;
                 CODCAT: number;
                 DATAINC: Date;
                 DATAALT: Date;
             };
         } & {
             CODALU: number;
-            STATUS: boolean;
+            STATUS: number;
             DATAINICIO: Date;
             DATAFINAL: Date;
             ENDERECO: string;
@@ -142,6 +143,7 @@ export declare class AluguelService {
         };
     } & {
         CODFAT: number;
+        CUSTO: number;
         PRECOFINAL: number;
         DATAFATURADO: Date;
         CODALU: number;
@@ -161,14 +163,14 @@ export declare class AluguelService {
                 CODPROD: number;
                 CODIGO: string;
                 DESCRICAO: string;
-                STATUS: boolean;
+                STATUS: number;
                 CODCAT: number;
                 DATAINC: Date;
                 DATAALT: Date;
             };
         } & {
             CODALU: number;
-            STATUS: boolean;
+            STATUS: number;
             DATAINICIO: Date;
             DATAFINAL: Date;
             ENDERECO: string;
@@ -180,6 +182,7 @@ export declare class AluguelService {
         };
     } & {
         CODFAT: number;
+        CUSTO: number;
         PRECOFINAL: number;
         DATAFATURADO: Date;
         CODALU: number;
@@ -196,7 +199,7 @@ export declare class AluguelService {
     listarCliente(body: any, jwt: string): Promise<({
         ALUGUEIS: {
             CODALU: number;
-            STATUS: boolean;
+            STATUS: number;
             DATAINICIO: Date;
             DATAFINAL: Date;
             ENDERECO: string;

@@ -23,7 +23,7 @@ export class AluguelService {
       const aluguel = await this.prisma.aluguel.findFirst({
         where: {
           CODPROD: body.CODPROD,
-          STATUS: true,
+          STATUS: 1,
         },
       });
       if (aluguel) {
@@ -34,7 +34,7 @@ export class AluguelService {
       }
 
       const cliente = await this.prisma.cliente.findFirst({
-        where: { NOME: body.CLIENTE },
+        where: { NOME: body.CLIENTE.toUpperCase() },
       });
 
       if (cliente) {
@@ -53,10 +53,14 @@ export class AluguelService {
             PRECOINICIAL: body.PRECOINICIAL,
           },
         });
+        await this.prisma.produto.update({
+          where: { CODPROD: produto.CODPROD },
+          data: { STATUS: 0 },
+        });
         return cadastra;
       } else {
         const codcli = await this.prisma.cliente.create({
-          data: { NOME: body.CLIENTE, CONTATO: body.CONTATO },
+          data: { NOME: body.CLIENTE.toUpperCase(), CONTATO: body.CONTATO },
         });
 
         const cadastra = await this.prisma.aluguel.create({
@@ -68,6 +72,10 @@ export class AluguelService {
             ENDERECO: body.ENDERECO,
             PRECOINICIAL: body.PRECOINICIAL,
           },
+        });
+        await this.prisma.produto.update({
+          where: { CODPROD: produto.CODPROD },
+          data: { STATUS: 0 },
         });
         return cadastra;
       }
@@ -146,7 +154,7 @@ export class AluguelService {
     try {
       if (body.STATUS == 'true') {
         const alugueis = await this.prisma.aluguel.findMany({
-          where: { STATUS: true },
+          where: { STATUS: 1 },
           include: { PRODUTO: true, CLIENTE: true },
         });
         if (!alugueis) {
@@ -159,7 +167,7 @@ export class AluguelService {
         return alugueis;
       } else if (body.STATUS == 'false') {
         const alugueis = await this.prisma.aluguel.findMany({
-          where: { STATUS: false },
+          where: { STATUS: 0 },
           include: { PRODUTO: true, CLIENTE: true },
         });
         if (!alugueis) {
@@ -201,8 +209,13 @@ export class AluguelService {
       const atualiza = await this.prisma.aluguel.update({
         where: { CODALU: busca.CODALU },
         data: {
-          STATUS: false,
+          STATUS: 0,
         },
+      });
+
+      await this.prisma.produto.update({
+        where: { CODPROD: busca.CODPROD },
+        data: { STATUS: 1 },
       });
 
       const cadastra = await this.prisma.faturado.create({

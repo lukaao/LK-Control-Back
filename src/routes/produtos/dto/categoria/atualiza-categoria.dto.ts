@@ -26,6 +26,6 @@ export class AtualizarCategoriaDto {
     required: false,
   })
   @IsOptional()
-  @IsBoolean()
-  STATUS: boolean;
+  @IsNumber()
+  STATUS: number;
 }

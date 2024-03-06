@@ -9,14 +9,14 @@ export declare class CategoriaService {
     cadastra(body: CadastrarCategoriaDto, jwt: string): Promise<{
         CODCAT: number;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         DATAINC: Date;
         DATAALT: Date;
     }>;
     atualiza(body: AtualizarCategoriaDto, jwt: string): Promise<{
         CODCAT: number;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         DATAINC: Date;
         DATAALT: Date;
     }>;
@@ -25,7 +25,7 @@ export declare class CategoriaService {
             CODPROD: number;
             CODIGO: string;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             CODCAT: number;
             DATAINC: Date;
             DATAALT: Date;
@@ -33,7 +33,7 @@ export declare class CategoriaService {
     } & {
         CODCAT: number;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         DATAINC: Date;
         DATAALT: Date;
     }>;
@@ -42,7 +42,7 @@ export declare class CategoriaService {
             CODPROD: number;
             CODIGO: string;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             CODCAT: number;
             DATAINC: Date;
             DATAALT: Date;
@@ -50,7 +50,7 @@ export declare class CategoriaService {
     } & {
         CODCAT: number;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         DATAINC: Date;
         DATAALT: Date;
     })[]>;

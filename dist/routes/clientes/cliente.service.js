@@ -19,16 +19,16 @@ let ClienteService = class ClienteService {
     async cadastrar(body, jwt) {
         try {
             const busca = await this.prisma.cliente.findFirst({
-                where: { NOME: body.CLIENTE },
+                where: { NOME: body.CLIENTE.toUpperCase() },
             });
             if (busca) {
                 const update = await this.prisma.cliente.update({
                     where: { CODCLI: busca.CODCLI },
-                    data: { NOME: body.CLIENTE, CONTATO: body.CONTATO },
+                    data: { NOME: body.CLIENTE.toUpperCase(), CONTATO: body.CONTATO },
                 });
             }
             const cadastra = await this.prisma.cliente.create({
-                data: { NOME: body.CLIENTE, CONTATO: body.CONTATO },
+                data: { NOME: body.CLIENTE.toUpperCase(), CONTATO: body.CONTATO },
             });
             return cadastra;
         }

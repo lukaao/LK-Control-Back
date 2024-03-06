@@ -3,5 +3,5 @@ export declare class AtualizarProdutodto {
     CATEGORIA: string;
     CODIGO: string;
     DESCRICAO: string;
-    STATUS: boolean;
+    STATUS: number;
 }

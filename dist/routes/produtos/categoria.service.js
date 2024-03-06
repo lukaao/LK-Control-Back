@@ -78,14 +78,14 @@ let CategoriaService = class CategoriaService {
         try {
             if (body.STATUS == 'true') {
                 const lista = await this.prisma.categoria.findMany({
-                    where: { STATUS: true },
+                    where: { STATUS: 1 },
                     include: { PRODUTOS: true },
                 });
                 return lista;
             }
             else if (body.STATUS == 'false') {
                 const lista = await this.prisma.categoria.findMany({
-                    where: { STATUS: false },
+                    where: { STATUS: 0 },
                     include: { PRODUTOS: true },
                 });
                 return lista;

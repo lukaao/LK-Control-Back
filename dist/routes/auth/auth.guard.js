@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthGuard = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
-const jsonwebtoken_1 = require("jsonwebtoken");
 const prisma_service_1 = require("../../services/prisma.service");
 let AuthGuard = class AuthGuard {
     constructor(jwtService, prisma) {
@@ -24,11 +23,6 @@ let AuthGuard = class AuthGuard {
             const request = context.switchToHttp().getRequest();
             const token = this.extractTokenFromHeader(request);
             if (!token) {
-                throw new common_1.HttpException(`Credênciais invalidas ou não fornecidas!`, common_1.HttpStatus.UNAUTHORIZED);
-            }
-            const tokenDados = (0, jsonwebtoken_1.decode)(token);
-            const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
-            if (currentTimestampInSeconds >= tokenDados.exp) {
                 throw new common_1.HttpException(`Credênciais invalidas ou não fornecidas!`, common_1.HttpStatus.UNAUTHORIZED);
             }
         }

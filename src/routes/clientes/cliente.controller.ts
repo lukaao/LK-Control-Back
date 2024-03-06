@@ -26,7 +26,7 @@ export class ClienteController {
     return this.clienteService.cadastrar(body, token);
   }
 
-  @Get('/buscar')
+  @Get('/listar')
   buscar(@Req() request: Request, @Query() body: any) {
     const token = request.headers.authorization.split(' ')[1];
     return this.clienteService.listar(body, token);

@@ -16,14 +16,14 @@ export declare class ClienteService {
                 CODPROD: number;
                 CODIGO: string;
                 DESCRICAO: string;
-                STATUS: boolean;
+                STATUS: number;
                 CODCAT: number;
                 DATAINC: Date;
                 DATAALT: Date;
             };
         } & {
             CODALU: number;
-            STATUS: boolean;
+            STATUS: number;
             DATAINICIO: Date;
             DATAFINAL: Date;
             ENDERECO: string;

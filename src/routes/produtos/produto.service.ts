@@ -39,6 +39,7 @@ export class ProdutoService {
           CODCAT: cat.CODCAT,
           CODIGO: body.CODIGO,
         },
+        include: { CATEGORIA: true },
       });
       return cadastra;
     } catch (error) {
@@ -116,26 +117,10 @@ export class ProdutoService {
 
   async listar(body: ListarProdutoDto, jwt: string) {
     try {
-      if (body.CATEGORIA) {
-        const cat = await this.prisma.categoria.findFirst({
-          where: { DESCRICAO: body.CATEGORIA },
-        });
-        if (!cat) {
-          throw new HttpException(
-            'Categoria não encontrada',
-            HttpStatus.NOT_FOUND,
-          );
-        }
-        const lista = await this.prisma.produto.findMany({
-          where: { STATUS: true, CODCAT: cat.CODCAT },
-          include: { CATEGORIA: true },
-        });
-        return lista;
-      }
       const lista = await this.prisma.produto.findMany({
-        where: { STATUS: true },
-        include: { CATEGORIA: true },
+        include: { CATEGORIA: true, ALUGUEIS: { where: { STATUS: 1 } } },
       });
+
       return lista;
     } catch (error) {
       throw new HttpException(error.message, error.status);

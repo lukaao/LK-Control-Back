@@ -30,15 +30,15 @@ export class AuthGuard implements CanActivate {
         );
       }
 
-      const tokenDados: any = decode(token);
+      // const tokenDados: any = decode(token);
 
-      const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
-      if (currentTimestampInSeconds >= tokenDados.exp) {
-        throw new HttpException(
-          `Credênciais invalidas ou não fornecidas!`,
-          HttpStatus.UNAUTHORIZED,
-        );
-      }
+      // const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
+      // if (currentTimestampInSeconds >= tokenDados.exp) {
+      //   throw new HttpException(
+      //     `Credênciais invalidas ou não fornecidas!`,
+      //     HttpStatus.UNAUTHORIZED,
+      //   );
+      // }
     } catch (error) {
       console.log(error);
       throw new HttpException(

@@ -9,10 +9,20 @@ import { AuthService } from './routes/auth/auth.service';
 import { ProdutoService } from './routes/produtos/produto.service';
 import { CategoriaService } from './routes/produtos/categoria.service';
 import { ProdutosController } from './routes/produtos/produto.controller';
+import { AluguelService } from './routes/aluguel/aluguel.service';
+import { ClienteService } from './routes/clientes/cliente.service';
+import { AluguelController } from './routes/aluguel/aluguel.controller';
+import { ClienteController } from './routes/clientes/cliente.controller';
 
 @Module({
   imports: [ConfigModule.forRoot()],
-  controllers: [AppController, AuthController, ProdutosController],
+  controllers: [
+    AppController,
+    AuthController,
+    ProdutosController,
+    AluguelController,
+    ClienteController,
+  ],
   providers: [
     AppService,
     PrismaService,
@@ -20,6 +30,8 @@ import { ProdutosController } from './routes/produtos/produto.controller';
     AuthService,
     ProdutoService,
     CategoriaService,
+    AluguelService,
+    ClienteService,
   ],
 })
 export class AppModule {}

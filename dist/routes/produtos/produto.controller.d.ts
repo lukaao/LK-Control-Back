@@ -14,10 +14,18 @@ export declare class ProdutosController {
     private readonly produtoService;
     constructor(categoriaService: CategoriaService, produtoService: ProdutoService);
     cadastrar(request: Request, body: CadastrarProdutodto): Promise<{
+        CATEGORIA: {
+            CODCAT: number;
+            DESCRICAO: string;
+            STATUS: number;
+            DATAINC: Date;
+            DATAALT: Date;
+        };
+    } & {
         CODPROD: number;
         CODIGO: string;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         CODCAT: number;
         DATAINC: Date;
         DATAALT: Date;
@@ -26,7 +34,7 @@ export declare class ProdutosController {
         CODPROD: number;
         CODIGO: string;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         CODCAT: number;
         DATAINC: Date;
         DATAALT: Date;
@@ -35,7 +43,7 @@ export declare class ProdutosController {
         CATEGORIA: {
             CODCAT: number;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             DATAINC: Date;
             DATAALT: Date;
         };
@@ -43,7 +51,7 @@ export declare class ProdutosController {
         CODPROD: number;
         CODIGO: string;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         CODCAT: number;
         DATAINC: Date;
         DATAALT: Date;
@@ -52,15 +60,27 @@ export declare class ProdutosController {
         CATEGORIA: {
             CODCAT: number;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             DATAINC: Date;
             DATAALT: Date;
         };
+        ALUGUEIS: {
+            CODALU: number;
+            STATUS: number;
+            DATAINICIO: Date;
+            DATAFINAL: Date;
+            ENDERECO: string;
+            PRECOINICIAL: number;
+            CODCLI: number;
+            CODPROD: number;
+            DATAINC: Date;
+            DATAALT: Date;
+        }[];
     } & {
         CODPROD: number;
         CODIGO: string;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         CODCAT: number;
         DATAINC: Date;
         DATAALT: Date;
@@ -68,14 +88,14 @@ export declare class ProdutosController {
     cadastrarCategoria(request: Request, body: CadastrarCategoriaDto): Promise<{
         CODCAT: number;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         DATAINC: Date;
         DATAALT: Date;
     }>;
     atualizarCategoria(request: Request, body: AtualizarCategoriaDto): Promise<{
         CODCAT: number;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         DATAINC: Date;
         DATAALT: Date;
     }>;
@@ -84,7 +104,7 @@ export declare class ProdutosController {
             CODPROD: number;
             CODIGO: string;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             CODCAT: number;
             DATAINC: Date;
             DATAALT: Date;
@@ -92,7 +112,7 @@ export declare class ProdutosController {
     } & {
         CODCAT: number;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         DATAINC: Date;
         DATAALT: Date;
     }>;
@@ -101,7 +121,7 @@ export declare class ProdutosController {
             CODPROD: number;
             CODIGO: string;
             DESCRICAO: string;
-            STATUS: boolean;
+            STATUS: number;
             CODCAT: number;
             DATAINC: Date;
             DATAALT: Date;
@@ -109,7 +129,7 @@ export declare class ProdutosController {
     } & {
         CODCAT: number;
         DESCRICAO: string;
-        STATUS: boolean;
+        STATUS: number;
         DATAINC: Date;
         DATAALT: Date;
     })[]>;

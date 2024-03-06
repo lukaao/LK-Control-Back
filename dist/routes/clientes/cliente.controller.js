@@ -41,7 +41,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ClienteController.prototype, "cadastrar", null);
 __decorate([
-    (0, common_1.Get)('/buscar'),
+    (0, common_1.Get)('/listar'),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Query)()),
     __metadata("design:type", Function),
