@@ -111,37 +111,7 @@ export declare class AluguelService {
         DATAINC: Date;
         DATAALT: Date;
     }>;
-    buscarFaturado(body: any, jwt: string): Promise<{
-        ALUGUEL: {
-            CLIENTE: {
-                CODCLI: number;
-                NOME: string;
-                CONTATO: string;
-                DATAINC: Date;
-                DATAALT: Date;
-            };
-            PRODUTO: {
-                CODPROD: number;
-                CODIGO: string;
-                DESCRICAO: string;
-                STATUS: number;
-                CODCAT: number;
-                DATAINC: Date;
-                DATAALT: Date;
-            };
-        } & {
-            CODALU: number;
-            STATUS: number;
-            DATAINICIO: Date;
-            DATAFINAL: Date;
-            ENDERECO: string;
-            PRECOINICIAL: number;
-            CODCLI: number;
-            CODPROD: number;
-            DATAINC: Date;
-            DATAALT: Date;
-        };
-    } & {
+    listarFaturado(body: any, jwt: string): Promise<{
         CODFAT: number;
         CUSTO: number;
         PRECOFINAL: number;
@@ -149,8 +119,8 @@ export declare class AluguelService {
         CODALU: number;
         DATAINC: Date;
         DATAALT: Date;
-    }>;
-    listarFaturado(body: any, jwt: string): Promise<({
+    }[]>;
+    buscarFaturado(body: any, jwt: string): Promise<({
         ALUGUEL: {
             CLIENTE: {
                 CODCLI: number;

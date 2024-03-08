@@ -222,6 +222,7 @@ export class AluguelService {
         data: {
           CODALU: body.CODALU,
           PRECOFINAL: body.PRECOFINAL,
+          CUSTO: body.CUSTO,
           DATAFATURADO: body.DATAFATURADO,
         },
       });
@@ -231,11 +232,10 @@ export class AluguelService {
     }
   }
 
-  async buscarFaturado(body: any, jwt: string) {
+  async listarFaturado(body: any, jwt: string) {
     try {
-      const faturado = await this.prisma.faturado.findFirst({
+      const faturado = await this.prisma.faturado.findMany({
         where: { CODFAT: body.CODFAT },
-        include: { ALUGUEL: { include: { PRODUTO: true, CLIENTE: true } } },
       });
 
       if (!faturado) {
@@ -244,13 +244,14 @@ export class AluguelService {
           HttpStatus.NOT_FOUND,
         );
       }
+      console.log(faturado);
       return faturado;
     } catch (error) {
       throw new HttpException(error.message, error.status);
     }
   }
 
-  async listarFaturado(body: any, jwt: string) {
+  async buscarFaturado(body: any, jwt: string) {
     try {
       if (body.INICIO || body.FIM) {
         const dataInicioBody = new Date(body.INICIO);

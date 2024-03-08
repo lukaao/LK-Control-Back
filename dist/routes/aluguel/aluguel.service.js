@@ -200,6 +200,7 @@ let AluguelService = class AluguelService {
                 data: {
                     CODALU: body.CODALU,
                     PRECOFINAL: body.PRECOFINAL,
+                    CUSTO: body.CUSTO,
                     DATAFATURADO: body.DATAFATURADO,
                 },
             });
@@ -209,22 +210,22 @@ let AluguelService = class AluguelService {
             throw new common_1.HttpException(error.message, error.status);
         }
     }
-    async buscarFaturado(body, jwt) {
+    async listarFaturado(body, jwt) {
         try {
-            const faturado = await this.prisma.faturado.findFirst({
+            const faturado = await this.prisma.faturado.findMany({
                 where: { CODFAT: body.CODFAT },
-                include: { ALUGUEL: { include: { PRODUTO: true, CLIENTE: true } } },
             });
             if (!faturado) {
                 throw new common_1.HttpException('Faturado não encontrada', common_1.HttpStatus.NOT_FOUND);
             }
+            console.log(faturado);
             return faturado;
         }
         catch (error) {
             throw new common_1.HttpException(error.message, error.status);
         }
     }
-    async listarFaturado(body, jwt) {
+    async buscarFaturado(body, jwt) {
         try {
             if (body.INICIO || body.FIM) {
                 const dataInicioBody = new Date(body.INICIO);

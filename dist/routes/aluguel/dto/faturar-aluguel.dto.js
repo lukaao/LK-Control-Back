@@ -24,6 +24,9 @@ __decorate([
     __metadata("design:type", Number)
 ], FaturarDto.prototype, "CODALU", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        required: true,
+    }),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsDateString)(),
     __metadata("design:type", Date)
@@ -36,4 +39,12 @@ __decorate([
     (0, class_validator_1.IsNumber)(),
     __metadata("design:type", Number)
 ], FaturarDto.prototype, "PRECOFINAL", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({
+        required: true,
+    }),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsNumber)(),
+    __metadata("design:type", Number)
+], FaturarDto.prototype, "CUSTO", void 0);
 //# sourceMappingURL=faturar-aluguel.dto.js.map

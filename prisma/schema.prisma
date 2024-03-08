@@ -90,7 +90,7 @@ model Aluguel {
 model Faturado {
   CODFAT Int @id @default(autoincrement())
 
-  CUSTO Int?
+  CUSTO Float?
 
   PRECOFINAL   Float
   DATAFATURADO DateTime

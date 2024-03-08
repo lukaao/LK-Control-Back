@@ -9,6 +9,9 @@ export class FaturarDto {
   @IsNumber()
   CODALU: number;
 
+  @ApiProperty({
+    required: true,
+  })
   @IsNotEmpty()
   @IsDateString()
   DATAFATURADO: Date;
@@ -19,4 +22,11 @@ export class FaturarDto {
   @IsNotEmpty()
   @IsNumber()
   PRECOFINAL: number;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  @IsNumber()
+  CUSTO: number;
 }

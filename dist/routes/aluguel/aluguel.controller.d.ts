@@ -111,46 +111,7 @@ export declare class AluguelController {
         DATAINC: Date;
         DATAALT: Date;
     }>;
-    buscarFat(request: Request, body: any): Promise<{
-        ALUGUEL: {
-            CLIENTE: {
-                CODCLI: number;
-                NOME: string;
-                CONTATO: string;
-                DATAINC: Date;
-                DATAALT: Date;
-            };
-            PRODUTO: {
-                CODPROD: number;
-                CODIGO: string;
-                DESCRICAO: string;
-                STATUS: number;
-                CODCAT: number;
-                DATAINC: Date;
-                DATAALT: Date;
-            };
-        } & {
-            CODALU: number;
-            STATUS: number;
-            DATAINICIO: Date;
-            DATAFINAL: Date;
-            ENDERECO: string;
-            PRECOINICIAL: number;
-            CODCLI: number;
-            CODPROD: number;
-            DATAINC: Date;
-            DATAALT: Date;
-        };
-    } & {
-        CODFAT: number;
-        CUSTO: number;
-        PRECOFINAL: number;
-        DATAFATURADO: Date;
-        CODALU: number;
-        DATAINC: Date;
-        DATAALT: Date;
-    }>;
-    listarFat(request: Request, body: any): Promise<({
+    buscarFat(request: Request, body: any): Promise<({
         ALUGUEL: {
             CLIENTE: {
                 CODCLI: number;
@@ -189,4 +150,13 @@ export declare class AluguelController {
         DATAINC: Date;
         DATAALT: Date;
     })[]>;
+    listarFat(request: Request, body: any): Promise<{
+        CODFAT: number;
+        CUSTO: number;
+        PRECOFINAL: number;
+        DATAFATURADO: Date;
+        CODALU: number;
+        DATAINC: Date;
+        DATAALT: Date;
+    }[]>;
 }
